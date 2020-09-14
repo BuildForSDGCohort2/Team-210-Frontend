@@ -1,13 +1,22 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import Popper from "popper.js";
 import 'jquery'
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './app.css'
+import {getHistory} from "./services/fetch-data";
 
 
 function App() {
-  let displayHelper = [1,2,3,4,4,5,5,6,6,6,,7];
+  const [history,setHistory] = useState([]);
+  const [showList, setShowList] = useState(false)
+
+  useEffect(()=>{
+    getHistory().then(res=>{
+      let historyData = res.data;
+      setHistory(historyData)
+    })
+  },[])
   return (
     <div className="container-fluid bg-secondary">
       <div className="row bg-secondary">
@@ -16,25 +25,35 @@ function App() {
             <p className="lead">Avoid the traffic the clever way</p>
           <div className="form-group search-container">
             <div className="input-group mb-3 ">
-              <input type="text" className="form-control search-input" placeholder="E.g Westlands"/>
+              <input type="text" className="form-control search-input" placeholder="E.g Westlands"  onMouseEnter={()=>setShowList(true)}  onMouseLeave={()=>{setShowList(false)}}/>
                 <div className="input-group-append">
                   <span className="input-group-text link">Search</span>
                 </div>
             </div>
+            {
+              showList && <div className="w-100 optional-list">
+                {
+                  history.map(hist=><div className="shadow shadow-secondary m-1 p-1  single-option bg-dark link" key={hist.id}>{hist.start_location}</div>)
+                }
+              </div>
+            }
           </div>
         </div>
         <div className="card w-100">
           <div className="row justify-content-center mt-1 p-2">
             {
-              displayHelper.map(helper=> <div className="card shadow shadow-secondary col-md-11 history-card" key={helper}>
+              history.map(helper=> <div className="card shadow shadow-secondary col-md-11 history-card" key={helper.id}>
                 <div className="w-100 text-center">
-                  <div className="float-left">South C</div>
+                  <div className="float-left">{helper.start_location}</div>
                   -
                   <div className="float-right">
-                    Juja
+                    {helper.end_location}
                   </div>
                 </div>
-                <div className="text-success p-1 h6">Saved 50min</div>
+                <div className="w-100"><div className="text-success p-1 h6 float-left">Saved {helper.saved_time}</div>
+                  <div className="float-right">
+                    {helper.date}
+                  </div></div>
               </div>)
             }
           </div>
