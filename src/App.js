@@ -25,13 +25,13 @@ function App() {
             <p className="lead">Avoid the traffic the clever way</p>
           <div className="form-group search-container">
             <div className="input-group mb-3 ">
-              <input type="text" className="form-control search-input" placeholder="E.g Westlands"  onMouseEnter={()=>setShowList(true)}  onMouseLeave={()=>{setShowList(false)}}/>
+              <input type="text" className="form-control search-input" placeholder="E.g Westlands"  onMouseEnter={()=>setShowList(true)} />
                 <div className="input-group-append">
                   <span className="input-group-text link">Search</span>
                 </div>
             </div>
             {
-              showList && <div className="w-100 optional-list">
+              showList && <div className="w-100 optional-list"  onMouseLeave={()=>{setShowList(false)}}>
                 {
                   history.map(hist=><div className="shadow shadow-secondary m-1 p-1  single-option bg-dark link" key={hist.id}>{hist.start_location}</div>)
                 }
