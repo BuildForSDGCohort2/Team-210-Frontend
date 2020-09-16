@@ -22,6 +22,7 @@ function App() {
   }, []);
 
   const handleSearch = (e) => {
+    setSearched(e.target.value);
     let filtered = filterData(history, e.target.value);
     setFiltered(filtered);
   };
