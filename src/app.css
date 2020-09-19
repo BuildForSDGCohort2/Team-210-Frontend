@@ -1,49 +1,47 @@
-.body{
-    overflow-x: hidden;
-
+.body {
+  overflow-x: hidden;
 }
-.container-fluid{
-    width:100vw;
-    overflow-x: hidden;
+.container-fluid {
+  width: 100vw;
+  overflow-x: hidden;
 }
-.title-card{
-    height:50vh !important;
-    width:100% !important;
+.title-card {
+  height: 50vh !important;
+  width: 100% !important;
 
-    background-image: url("/img/sample.jpg") !important;
-
+  background-image: url("/img/sample.jpg") !important;
 }
-.optional-list{
-    position: absolute;
-    z-index: 2000;
-    background: rgb(79, 104, 127);
-    padding: 3px;
-    width: 70% !important;
+.optional-list {
+  position: absolute;
+  z-index: 2000;
+  background: rgb(79, 104, 127);
+  padding: 3px;
+  width: 70% !important;
 }
 
-.search-input{
-    /*width:38rem !important;*/
-    border:1px solid white;
-    background:transparent;
-    color: #fff !important;
+.search-input {
+  /*width:38rem !important;*/
+  border: 1px solid white;
+  background: transparent;
+  color: #fff !important;
 }
 
-.search-input:focus{
-    /*width:38rem;*/
-    border:1px solid white;
-    background:transparent;
-    color: #fff;
+.search-input:focus {
+  /*width:38rem;*/
+  border: 1px solid white;
+  background: transparent;
+  color: #fff;
 }
 
-.search-container{
-    width:80%;
+.search-container {
+  width: 80%;
 }
 
-.history-card{
-    height:100px;
-    margin-bottom: 10px;
+.history-card {
+  height: 100px;
+  margin-bottom: 10px;
 }
 
-.link{
-    cursor:pointer;
+.link {
+  cursor: pointer;
 }
