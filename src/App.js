@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Popper from "popper.js";
+import "popper.js";
 import "jquery";
 import "bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
